@@ -54,12 +54,12 @@ read_gc <- function(path) {
         rename(gen_cost = tp1)
 }
 
-dm_opening_2024 <- read_gc(path_gc_dm_2024)
-ds_opening_2024 <- read_gc(path_gc_ds_2024)
-dm_opening_2039 <- read_gc(path_gc_dm_2039)
-ds_opening_2039 <- read_gc(path_gc_ds_2039)
-dm_opening_2054 <- read_gc(path_gc_dm_2054)
-ds_opening_2054 <- read_gc(path_gc_ds_2054)
+dm_2024 <- read_gc(path_gc_dm_2024)
+ds_2024 <- read_gc(path_gc_ds_2024)
+dm_2039 <- read_gc(path_gc_dm_2039)
+ds_2039 <- read_gc(path_gc_ds_2039)
+dm_2054 <- read_gc(path_gc_dm_2054)
+ds_2054 <- read_gc(path_gc_ds_2054)
 
 jobs <- read_jobs(path_jobs)
 
@@ -68,11 +68,12 @@ jobs <- read_jobs(path_jobs)
 usethis::use_data(parameters, overwrite = TRUE)
 usethis::use_data(gva_factors, overwrite = TRUE)
 
-usethis::use_data(dm_opening_2024,
-                  ds_opening_2024,
-                  dm_opening_2039,
-                  ds_opening_2039,
-                  dm_opening_2054,
-                  ds_opening_2054,
+usethis::use_data(dm_2024,
+                  ds_2024,
+                  dm_2039,
+                  ds_2039,
+                  dm_2054,
+                  ds_2054,
                   jobs,
-                  internal = FALSE)
+                  internal = FALSE,
+                  overwrite = TRUE)

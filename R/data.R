@@ -16,3 +16,63 @@
 #' \code{gva_person}: GVA per person, \code{decay_parameter}: distance decay
 #' parameter, \code{elasticity}: elasticity of effictive density to productivity
 "parameters"
+
+#' Do Minimum 2024
+#'
+#' Sample generalised cost outputs from a transport model for a 2024 forecast
+#' year and a Do Minimum scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"dm_2024"
+
+#' Do Minimum 2039
+#'
+#' Sample generalised cost outputs from a transport model for a 2039 forecast
+#' year and a Do Minimum scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"dm_2039"
+
+#' Do Minimum 2054
+#'
+#' Sample generalised cost outputs from a transport model for a 2054 forecast
+#' year and a Do Minimum scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"dm_2054"
+
+#' Do Something 2024
+#'
+#' Sample generalised cost outputs from a transport model for a 2024 forecast
+#' year and a Do Something scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"ds_2024"
+
+#' Do Something 2039
+#'
+#' Sample generalised cost outputs from a transport model for a 2039 forecast
+#' year and a Do Something scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"ds_2039"
+
+#' Do Something 2054
+#'
+#' Sample generalised cost outputs from a transport model for a 2054 forecast
+#' year and a Do Something scenario.
+#'
+#' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
+#' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
+#' OD pair
+"ds_devto2054"

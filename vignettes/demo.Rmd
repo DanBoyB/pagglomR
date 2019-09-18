@@ -62,7 +62,7 @@ package for the purposes of this example and for reference.
 ```{r setup}
 library(pagglomR)
 
-dm_opening_2024
+dm_2024
 ```
 
 A sample jobs file is also included with with the `pagglomR` package.
@@ -105,16 +105,16 @@ Technology and Financial and Business Services.
 
 ```{r}
 # 2024
-eff_dens_dm_2024 <- calc_eff_dens(dm_opening_2024, jobs, 2024)
-eff_dens_ds_2024 <- calc_eff_dens(ds_opening_2024, jobs, 2024)
+eff_dens_dm_2024 <- calc_eff_dens(dm_2024, jobs, 2024)
+eff_dens_ds_2024 <- calc_eff_dens(ds_2024, jobs, 2024)
 
 # 2039
-eff_dens_dm_2039 <- calc_eff_dens(dm_opening_2039, jobs, 2039)
-eff_dens_ds_2039 <- calc_eff_dens(ds_opening_2039, jobs, 2039)
+eff_dens_dm_2039 <- calc_eff_dens(dm_2039, jobs, 2039)
+eff_dens_ds_2039 <- calc_eff_dens(ds_2039, jobs, 2039)
 
 # 2054
-eff_dens_dm_2054 <- calc_eff_dens(dm_opening_2054, jobs, 2054)
-eff_dens_ds_2054 <- calc_eff_dens(ds_opening_2054, jobs, 2054)
+eff_dens_dm_2054 <- calc_eff_dens(dm_2054, jobs, 2054)
+eff_dens_ds_2054 <- calc_eff_dens(ds_2054, jobs, 2054)
 ```
 
 We can then calculate the productivity impacts for each modelled year using the
