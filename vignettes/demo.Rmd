@@ -3,8 +3,10 @@ title: "How to use the pagglomR package"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{demo}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -35,7 +37,7 @@ time period, journey purpose, and user class. This can be calculated as follows:
 
 $$
 \begin{aligned}
-GC_{i, j} ^ {S, m, f} = \frac{\Sigma_p \ GC_{i, j} ^ {S, m, p, f} \ T_{i, j} ^ {S, m, p, f}} {\Sigma_p \ T_{i, j} ^ {S, m, p, f}}
+GC_{i, j} ^ {S, m, f} &= \frac{\sum_{p} \ GC_{i, j} ^ {S, m, p, f} \ T_{i, j} ^ {S, m, p, f}} {\sum_{p} \ T_{i, j} ^ {S, m, p, f}}
 \end{aligned}
 $$
 where:
@@ -63,9 +65,139 @@ library(pagglomR)
 dm_opening_2024
 ```
 
-
+A sample jobs file is also included with with the `pagglomR` package.
 
 ```{r}
-jobs
+head(jobs)
 ```
 
+In this example we have 3 modelled years - 2024, 2039 & 2054. We have 2 
+scenarios for each modelled year - "Do Minimum" and "Do Something". For each 
+year we first calculate the effective densities for each sector for both 
+scenarios using the generalised costs from the transport model and the jobs 
+data. This is undertaken using the `calc_eff_dens()` function which applies 
+the following formula:
+
+$$
+\begin{aligned}
+d_i^{S, k, f} &= \sum_{j} \sum_{m} \frac{E_j^{S,f}}{(GC_{i,j}^{S,m,f})a^k}
+\end{aligned}
+$$
+where:
+
+* $d_i^{S, k, f}$ is the effective density $d$ of origin area $i$ sector $k$ in 
+each scenario $S$ for forecast year $f$.
+
+* $E_j^{S,f}$ is is the total number of jobs for all sectors in zone $j$ for each 
+scenario $S$ for forecast year $f$. Note that the number of jobs will be the 
+same in both the Without Scheme (i.e. Do Minimum) and With Scheme (i.e. Do
+Something) scenarios.
+
+* $GC_{i,j}^{S,m,f}$ is is the average generalised cost of travel from area $i$
+to area $j$ in the scenario $S$ for mode $m$,
+
+* $a^k$ is the is the decay parameter for each sector $k$. This is held constant 
+irrespective of the forecast year.
+
+* $k$ is the is the aggregated industrial sector i.e. Manufacturing, 
+Construction, Wholesale & Retail, Transport, Information & Communications 
+Technology and Financial and Business Services.
+
+```{r}
+# 2024
+eff_dens_dm_2024 <- calc_eff_dens(dm_opening_2024, jobs, 2024)
+eff_dens_ds_2024 <- calc_eff_dens(ds_opening_2024, jobs, 2024)
+
+# 2039
+eff_dens_dm_2039 <- calc_eff_dens(dm_opening_2039, jobs, 2039)
+eff_dens_ds_2039 <- calc_eff_dens(ds_opening_2039, jobs, 2039)
+
+# 2054
+eff_dens_dm_2054 <- calc_eff_dens(dm_opening_2054, jobs, 2054)
+eff_dens_ds_2054 <- calc_eff_dens(ds_opening_2054, jobs, 2054)
+```
+
+We can then calculate the productivity impacts for each modelled year using the
+effective density calculations for the "Do Minimum" and "Do Something" scenarios
+and the jobs data. The productivity impacts are calculated by applying the
+following formula:
+
+$$
+\begin{aligned}
+WEI_i^{k, f} &= \left[ \left( \frac{d_i^{DS, k, f}}{d_i^{DM, k, f}} \right)^{\rho^k} - 1\right] GVA_i^{DM,k,f} E_i^{DM,k,f}
+\end{aligned}
+$$
+where:
+
+* $WEI_i^{k, f}$ is the sectoral agglomeration impacts for each zone $i$ and 
+sector $k$ in each forecast year $f$.
+
+* $d_i^{DS, k, f}$ and $d_i^{DM, k, f}$ are the effective densities of origin 
+zone $i$ and sector $k$ in the "Do Something" and the "Do Minimum" scenarios 
+respectively. This will vary depending on the forecast year (f)3 due to the 
+change in the Generalised Cost of Travel over time associated with higher levels
+of traffic demand.
+
+* $\rho^k$ is the elasticity of productivity with respect to effective density 
+for sector $k$. This is held constant irrespective of the forecast year.
+
+* $GVA_i^{DM,k,f}$ is the Gross Value Added (GVA) per worker of each area $i$ 
+and sector $k$ in the Do Minimum scenario. This will vary depending on the 
+forecast year $f$ in line with expected productivity growth.
+
+* $E_i^{DM,k,f}$ is the total number of jobs in sector $k$ in origin area $i$ in
+the Do Minimum scenario. This will vary depending on the forecast year $f$ in 
+line with projected job growth.
+
+The `calc_prod_impacts()` function sums the above sectoral agglomeration imapcts
+into an overall productivty impact in Euro (€, in 201X prices).
+
+```{r}
+# 2024
+prod_2024 <- calc_prod_impacts(eff_dens_dm_2024, eff_dens_ds_2024, jobs)
+
+# 2039
+prod_2039 <- calc_prod_impacts(eff_dens_dm_2039, eff_dens_ds_2039, jobs)
+
+# 2054
+prod_2054 <- calc_prod_impacts(eff_dens_dm_2054, eff_dens_ds_2054, jobs)
+```
+
+The `discounted_prod()` function reads in the producitivty benefits calculated for 
+each modelled year and interpolates values for years in between the modelled 
+years. 
+
+It also calculates nominal productivity benefits per annum by applying GVA 
+growth based on the rates in Table 4 of PAG Unit 6.11. Discounted benefits are 
+then calculated by applying the test discount rate to the nominal benefits. This 
+is undertaken for the 30 year appraisal period plus a 30 year residual value 
+period.
+
+```{r}
+# discounted table of benefits
+discounted_benefits <- discounted_prod(prod_2024, 
+                                       prod_2039,
+                                       prod_2054)
+
+discounted_benefits
+```
+
+The discounted benefits can be summarised into a total present value benefit 
+over the 30 year appraisal period, and a seperate total for the residual value 
+period using the `prod_summary()` function.
+
+```{r}
+summary_benefits <- prod_summary(discounted_benefits)
+
+summary_benefits
+```
+
+The total productivity impacts in present value terms can be calculated using:
+
+```{r}
+sum(summary_benefits$pv_benefits)
+```
+
+This can be added to the transport user benefits to produce an updated benefit
+cost ratio (BCR) as part of a sensivity test around the central case in the 
+scheme appraisal.
