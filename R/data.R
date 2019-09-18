@@ -75,4 +75,16 @@
 #' @format A tibble with 3 variables: \code{o_zone}: Origin Zone,
 #' \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
 #' OD pair
-"ds_devto2054"
+"ds_2054"
+
+#' Sample Jobs
+#'
+#' Sample jobs data for demo of \code{pagglomR} package.
+#'
+#' @format A dataframe with 6 variables: \code{Manufacturing}: jobs
+#' in manufacturing sector, \code{Construction}: jobs in construction sector,
+#' \code{Wholesale_Retail}: jobs in wholesale & retail sector,
+#' \code{Inf_Comm_Tech}: jobs in information, communication & technology
+#'  sector, #' \code{Fin_Bus_Services}: jobs in financial & business services
+#'  sector.
+"jobs"
