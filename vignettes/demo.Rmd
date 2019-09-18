@@ -1,0 +1,71 @@
+---
+title: "How to use the pagglomR package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This brief vignette demonstrates how the `pagglomR` package can be used to 
+calculate scheme agglomeration impacts. 
+
+Suppose we have a national roads scheme and, as part of the project appraisal 
+process, a transport model has been developed. We have AM, Inter-peak and PM
+peak models with Cars and HGVs defined as separate user classes. For each 
+future year model, we have a Do Minimum (without scheme) and a Do Something 
+(with scheme) scenario.
+
+Using the strategic transport modelling software (e.g. VISUM, SATURN) we can 
+output text files and/or csv files listing the generalised cost and number of 
+modelled trips for each origin destination pair. This can be output for each 
+scenario and for each time period, user class and journey purpose depending on 
+the structure of the transport model. 
+
+For each scenario, mode of travel (i.e. highway and/or public transport) and 
+each forecast year, a weighted average generalised cost is required across each 
+time period, journey purpose, and user class. This can be calculated as follows:
+
+$$
+\begin{aligned}
+GC_{i, j} ^ {S, m, f} = \frac{\Sigma_p \ GC_{i, j} ^ {S, m, p, f} \ T_{i, j} ^ {S, m, p, f}} {\Sigma_p \ T_{i, j} ^ {S, m, p, f}}
+\end{aligned}
+$$
+where:
+
+* $GC_{i, j} ^ {S, m, f}$ is the weighted average generalised costs of travel, 
+between zones $i$ and area $j$, for each mode $m$ in the scenario $S$ and the 
+forecast year $f$.
+
+* $GC_{i, j} ^ {S, m, p, f}$ is the generalised cost of trips from zone $i$ to 
+zone $j$, scenario $S$, mode $m$ and purpose $p$ in the forecast year $f$.
+
+* $T_{i, j} ^ {S, m, p, f}$ is thenumber of trips from zone $i$ to zone $j$ in 
+the scenario $S$ by mode $m$ and purpose $p$ in the forecast year $f$.
+
+In order for the generalised cost files to be read into `R` and used in the 
+`pagglomR` package, they should be in comma separated value (csv) format with 
+the column headings `o_zone`, `d_zone` and `gen_cost`.
+
+A number of sample generalised cost outputs are included with the `pagglomR` 
+package for the purposes of this example and for reference.
+
+```{r setup}
+library(pagglomR)
+
+dm_opening_2024
+```
+
+
+
+```{r}
+jobs
+```
+
