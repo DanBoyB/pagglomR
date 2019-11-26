@@ -18,7 +18,7 @@ parameters <- tibble(sector = c("Manufacturing",
 
 # Create GVA factors table ------------------------------------------------
 
-discount_rate <- 0.05
+discount_rate <- 0.04
 
 gva_factors <- tibble(year = 2016:2200) %>%
     mutate(discount = 1/((1 + discount_rate) ^ (year - 2011)),
