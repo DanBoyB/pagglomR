@@ -4,9 +4,12 @@
 \alias{discounted_prod}
 \title{Produce table of modelled, nominal and discounted productivity benefits}
 \usage{
-discounted_prod(...)
+discounted_prod(appraisal_year, ...)
 }
 \arguments{
+\item{appraisal_year}{Year in which appraisal is being undertaken (used to
+apply the appropriate discount rate)}
+
 \item{...}{objects containing the productivity benefits for each modelled
 year output using the \code{calc_prod_impacts} function.}
 }

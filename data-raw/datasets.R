@@ -18,17 +18,25 @@ parameters <- tibble(sector = c("Manufacturing",
 
 # Create GVA factors table ------------------------------------------------
 
-discount_rate <- 0.04
+discount_rate <- c(0.04, 0.035, 0.03, 0.025, 0.02, 0.015)
 
-gva_factors <- tibble(year = 2016:2200) %>%
-    mutate(discount = 1/((1 + discount_rate) ^ (year - 2011)),
-           gva_growth = case_when(
-               #year %in% c(2010:2014) ~ 1.014,
-               year == 2016 ~ 1,
-               year %in% c(2017:2019) ~ 1.036,
-               year %in% c(2020:2024) ~ 1.022,
-               TRUE ~ 1.023),
-           gva_compound = cumprod(gva_growth))
+gva_factors <- tibble(year = format(Sys.Date(), "%Y"):2200) %>%
+    mutate(appraisal_year = row_number()) %>%
+    mutate(discount = case_when(
+        appraisal_year %in% 1:30 ~ 1/((1 + discount_rate[1]) ^ (year - 2011)),
+        appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[2]) ^ (year - 2011)),
+        appraisal_year %in% 61:100 ~ 1/((1 + discount_rate[3]) ^ (year - 2011)),
+        appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[4]) ^ (year - 2011)),
+        appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[5]) ^ (year - 2011)),
+        appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[6]) ^ (year - 2011)),
+    ),
+    gva_growth = case_when(
+        #year %in% c(2010:2014) ~ 1.014,
+        year == 2016 ~ 1,
+        year %in% c(2017:2019) ~ 1.036,
+        year %in% c(2020:2024) ~ 1.022,
+        TRUE ~ 1.023),
+    gva_compound = cumprod(gva_growth))
 
 
 # Load internal data for testing -----------------------------------------------
