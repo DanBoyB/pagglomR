@@ -175,7 +175,8 @@ period.
 
 ```{r}
 # discounted table of benefits
-discounted_benefits <- discounted_prod(prod_2024, 
+discounted_benefits <- discounted_prod(appraisal_year = 2020,
+                                       prod_2024, 
                                        prod_2039,
                                        prod_2054)
 
