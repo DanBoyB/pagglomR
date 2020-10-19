@@ -49,14 +49,14 @@ forecast year $f$.
 * $GC_{i, j} ^ {S, m, p, f}$ is the generalised cost of trips from zone $i$ to 
 zone $j$, scenario $S$, mode $m$ and purpose $p$ in the forecast year $f$.
 
-* $T_{i, j} ^ {S, m, p, f}$ is thenumber of trips from zone $i$ to zone $j$ in 
+* $T_{i, j} ^ {S, m, p, f}$ is the number of trips from zone $i$ to zone $j$ in 
 the scenario $S$ by mode $m$ and purpose $p$ in the forecast year $f$.
 
 In order for the generalised cost files to be read into `R` and used in the 
 `pagglomR` package, they should be in comma separated value (csv) format with 
 the column headings `o_zone`, `d_zone` and `gen_cost`.
 
-In the case of outputs from a multi-modal transport model, seperate generalised 
+In the case of outputs from a multi-modal transport model, separate generalised 
 cost skim matrices should be produced for private and public transport modes 
 e.g. road and rail. These matrices should then be summed for each forecast year 
 and scenario for input into the effective density calculations outlined below.
@@ -160,8 +160,8 @@ forecast year $f$ in line with expected productivity growth.
 the Do Minimum scenario. This will vary depending on the forecast year $f$ in 
 line with projected job growth.
 
-The `calc_prod_impacts()` function sums the above sectoral agglomeration imapcts
-into an overall productivty impact in Euro (€, in 201X prices).
+The `calc_prod_impacts()` function sums the above sectoral agglomeration impacts
+into an overall productivity impact in Euro (€, in 201X prices).
 
 ```{r}
 # 2024
@@ -174,7 +174,7 @@ prod_2039 <- calc_prod_impacts(eff_dens_dm_2039, eff_dens_ds_2039, jobs)
 prod_2054 <- calc_prod_impacts(eff_dens_dm_2054, eff_dens_ds_2054, jobs)
 ```
 
-The `discounted_prod()` function reads in the producitivty benefits calculated for 
+The `discounted_prod()` function reads in the productivity benefits calculated for 
 each modelled year and interpolates values for years in between the modelled 
 years. 
 
@@ -195,7 +195,7 @@ discounted_benefits
 ```
 
 The discounted benefits can be summarised into a total present value benefit 
-over the 30 year appraisal period, and a seperate total for the residual value 
+over the 30 year appraisal period, and a separate total for the residual value 
 period using the `prod_summary()` function.
 
 ```{r}
@@ -211,5 +211,5 @@ sum(summary_benefits$pv_benefits)
 ```
 
 This can be added to the transport user benefits to produce an updated benefit
-cost ratio (BCR) as part of a sensivity test around the central case in the 
+cost ratio (BCR) as part of a sensitivity test around the central case in the 
 scheme appraisal.
