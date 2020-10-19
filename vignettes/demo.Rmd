@@ -56,6 +56,17 @@ In order for the generalised cost files to be read into `R` and used in the
 `pagglomR` package, they should be in comma separated value (csv) format with 
 the column headings `o_zone`, `d_zone` and `gen_cost`.
 
+In the case of outputs from a multi-modal transport model, seperate generalised 
+cost skim matrices should be produced for private and public transport modes 
+e.g. road and rail. These matrices should then be summed for each forecast year 
+and scenario for input into the effective density calculations outlined below.
+
+Weighted average generalised cost matrices should produced for commuting and 
+business purposes only as productivity benefits are only associated with these
+journey purposes. Also, the modelled time periods to be included should be based
+on AM peak, Inter-Peak and PM peak. Off peak periods should not be considered as
+these periods are not active from the perspective of commuting and business use.
+
 A number of sample generalised cost outputs are included with the `pagglomR` 
 package for the purposes of this example and for reference.
 

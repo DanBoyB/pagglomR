@@ -47,8 +47,8 @@ calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
     total_productivity <- sum(productivity)
 
     return(list(year = eff_dens_dm$year,
-                prod_total = total_productivity
-                # ,
-                # prod_sector = sectoral_productivity
+                prod_total = total_productivity,
+                by_zone = productivity,
+                prod_sector = sectoral_productivity
                 ))
 }
