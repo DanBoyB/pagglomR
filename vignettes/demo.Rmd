@@ -58,8 +58,7 @@ the column headings `o_zone`, `d_zone` and `gen_cost`.
 
 In the case of outputs from a multi-modal transport model, separate generalised 
 cost skim matrices should be produced for private and public transport modes 
-e.g. road and rail. These matrices should then be summed for each forecast year 
-and scenario for input into the effective density calculations outlined below.
+e.g. road and rail. 
 
 Weighted average generalised cost matrices should produced for commuting and 
 business purposes only as productivity benefits are only associated with these
@@ -127,6 +126,12 @@ eff_dens_ds_2039 <- calc_eff_dens(ds_2039, jobs, 2039)
 eff_dens_dm_2054 <- calc_eff_dens(dm_2054, jobs, 2054)
 eff_dens_ds_2054 <- calc_eff_dens(ds_2054, jobs, 2054)
 ```
+
+In the case of a multi-modal assessment, separate effective density calculations 
+should be run using the generalised costs from the private and public transport 
+modes. These matrices should then be summed for each forecast year 
+and scenario to form the effective density matrices to be then used for the
+calculation of productivity impacts.
 
 We can then calculate the productivity impacts for each modelled year using the
 effective density calculations for the "Do Minimum" and "Do Something" scenarios
