@@ -18,13 +18,13 @@
 prod_summary <- function(prod_table) {
 
     benefits_30 <- prod_table %>%
-        dplyr::filter(modelled > 0) %>%
+        dplyr::filter(modelled != 0) %>%
         dplyr::slice(1:30) %>%
         dplyr::summarise(discounted = sum(.data$discounted)) %>%
         dplyr::mutate(period = "30 year benefits")
 
     benefits_resid <- prod_table %>%
-        dplyr::filter(modelled > 0) %>%
+        dplyr::filter(modelled != 0) %>%
         dplyr::slice(31:60) %>%
         dplyr::summarise(discounted = sum(.data$discounted)) %>%
         dplyr::mutate(period = "Residual value benefits")
