@@ -31,9 +31,9 @@ gva_factors <- tibble(year = format(Sys.Date(), "%Y"):2200) %>%
         appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[6]) ^ (year - 2011)),
     ),
     gva_growth = case_when(
-        #year %in% c(2010:2014) ~ 1.014,
-        year == 2016 ~ 1,
-        year %in% c(2017:2019) ~ 1.036,
+        year %in% c(2010:2014) ~ 1.014,
+        # year == 2016 ~ 1,
+        year %in% c(2015:2019) ~ 1.036,
         year %in% c(2020:2024) ~ 1.022,
         TRUE ~ 1.023),
     gva_compound = cumprod(gva_growth))

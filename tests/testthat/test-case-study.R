@@ -1,17 +1,18 @@
 # Run process on case study -----------------------------------------------
 
-eff_dens_dm_2024 <- calc_eff_dens(dm_opening_2024, jobs, 2024)
-eff_dens_ds_2024 <- calc_eff_dens(ds_opening_2024, jobs, 2024)
-eff_dens_dm_2039 <- calc_eff_dens(dm_opening_2039, jobs, 2039)
-eff_dens_ds_2039 <- calc_eff_dens(ds_opening_2039, jobs, 2039)
-eff_dens_dm_2054 <- calc_eff_dens(dm_opening_2054, jobs, 2054)
-eff_dens_ds_2054 <- calc_eff_dens(ds_opening_2054, jobs, 2054)
+eff_dens_dm_2024 <- calc_eff_dens(dm_2024, jobs, 2024)
+eff_dens_ds_2024 <- calc_eff_dens(ds_2024, jobs, 2024)
+eff_dens_dm_2039 <- calc_eff_dens(dm_2039, jobs, 2039)
+eff_dens_ds_2039 <- calc_eff_dens(ds_2039, jobs, 2039)
+eff_dens_dm_2054 <- calc_eff_dens(dm_2054, jobs, 2054)
+eff_dens_ds_2054 <- calc_eff_dens(ds_2054, jobs, 2054)
 
 prod_2024 <- calc_prod_impacts(eff_dens_dm_2024, eff_dens_ds_2024, jobs)
 prod_2039 <- calc_prod_impacts(eff_dens_dm_2039, eff_dens_ds_2039, jobs)
 prod_2054 <- calc_prod_impacts(eff_dens_dm_2054, eff_dens_ds_2054, jobs)
 
-discounted_benefits <- discounted_prod(prod_2024,
+discounted_benefits <- discounted_prod(appraisal_year = 2020,
+                                       prod_2024,
                                        prod_2039,
                                        prod_2054)
 
