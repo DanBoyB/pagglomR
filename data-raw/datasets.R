@@ -20,7 +20,7 @@ parameters <- tibble(sector = c("Manufacturing",
 
 discount_rate <- c(0.04, 0.035, 0.03, 0.025, 0.02, 0.015)
 
-gva_factors <- tibble(year = format(Sys.Date(), "%Y"):2200) %>%
+gva_factors <- tibble(year = 2016:2200) %>%
     mutate(appraisal_year = row_number()) %>%
     mutate(discount = case_when(
         appraisal_year %in% 1:30 ~ 1/((1 + discount_rate[1]) ^ (year - 2011)),
