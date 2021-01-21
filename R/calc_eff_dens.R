@@ -39,9 +39,10 @@ calc_eff_dens <- function(gen_costs, jobs, year) {
             # calc matrix of effective densities
             eff_dens_zone[i, ] <- total_jobs / (gen_costs[i, ] ^ decay_parameter)
 
-            # convert Infs and NaNs to zeros
-            eff_dens_zone[is.infinite(eff_dens_zone) | is.nan(eff_dens_zone)] <- 0
         }
+
+        # convert Infs and NaNs to zeros
+        eff_dens_zone[is.infinite(eff_dens_zone) | is.nan(eff_dens_zone)] <- 0
 
         # total effective densities by zone
         eff_dens_zone <- rowSums(eff_dens_zone)
