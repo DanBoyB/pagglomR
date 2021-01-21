@@ -65,7 +65,7 @@ discounted_prod <- function(appraisal_year, ...) {
         dplyr::mutate(modelled = case_when(
             .data$year <= years[length(years)] ~ .data$modelled,
             .data$year > years[length(years)]  ~ nth(.data$modelled,
-                                                     years[length(years)] - years[1] + 1))) %>%
+                                                     years[length(years)] - initial_years[1] + 1))) %>%
         dplyr::mutate(modelled = case_when(
             is.na(modelled) ~ 0,
             TRUE ~ as.numeric(modelled)
