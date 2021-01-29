@@ -12,20 +12,15 @@
 
 calc_eff_dens <- function(gen_costs, jobs, year) {
 
+    # check if no. zones in costs skim and jobs file are equal, or return error
     error_fn <- function(skim, jobs) {
-
         skim_zones <- length(unique(skim[[1]]))
         jobs_zones <- nrow(jobs)
-
-        stopifnot(skim_zones == jobs_zones)
-
+        skim_zones == jobs_zones
     }
 
-    tryCatch(error_fn(gen_costs, jobs),
-             message = "No. of zones in jobs file must equal no. of zones in cost skim")
-
-    # stopifnot("No. of zones in jobs file must equal no. of zones in cost skim",
-    #           check_zones(gen_costs, jobs) == TRUE)
+    if(error_fn(gen_costs, jobs) == FALSE)
+        stop("No. of zones in jobs file must equal no. of zones in cost skim")
 
     # calculate number of zones and number of sectors
     no_zones <- length(unique(gen_costs$o_zone))

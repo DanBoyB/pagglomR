@@ -15,6 +15,28 @@
 
 calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
 
+    # check if no. zones in ed skims and jobs file are equal, or return error
+    error_fn_jobs <- function(skim, jobs) {
+        ed_zones <- nrow(skim[[2]])
+        jobs_zones <- nrow(jobs)
+        ed_zones == jobs_zones
+    }
+
+    error_fn_ed <- function(dm_skim, ds_skim) {
+        dm_zones <- nrow(dm_skim[[2]])
+        ds_zones <- nrow(ds_skim[[2]])
+        dm_zones == ds_zones
+    }
+
+    if(error_fn_ed(eff_dens_dm, eff_dens_ds) == FALSE)
+        stop("No. of zones in Do Min Effective Densities must equal no. of zones in Do Some Effective Densities")
+
+    if(error_fn_jobs(eff_dens_dm, jobs) == FALSE)
+        stop("No. of zones in jobs file must equal no. of zones in Do Min Effective Densities")
+
+    if(error_fn_jobs(eff_dens_ds, jobs) == FALSE)
+        stop("No. of zones in jobs file must equal no. of zones in Do Some Effective Densities")
+
     # calculate number of zones and number of sectors
     no_zones <- nrow(eff_dens_dm$eff_dens)
     no_sectors <- nrow(parameters)
