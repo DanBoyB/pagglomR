@@ -11,18 +11,21 @@
 #' @export
 
 calc_eff_dens <- function(gen_costs, jobs, year) {
-    
-    check_zones <- function(skim, jobs) {
-        
+
+    error_fn <- function(skim, jobs) {
+
         skim_zones <- length(unique(skim[[1]]))
         jobs_zones <- nrow(jobs)
-        
-        return(skim_zones == jobs_zones)
-        
+
+        stopifnot(skim_zones == jobs_zones)
+
     }
-    
-    stopifnot("No. of zones in jobs file must equal no. of zones in cost skim",
-              check_zones(gen_costs, jobs) == TRUE)
+
+    tryCatch(error_fn(gen_costs, jobs),
+             message = "No. of zones in jobs file must equal no. of zones in cost skim")
+
+    # stopifnot("No. of zones in jobs file must equal no. of zones in cost skim",
+    #           check_zones(gen_costs, jobs) == TRUE)
 
     # calculate number of zones and number of sectors
     no_zones <- length(unique(gen_costs$o_zone))
