@@ -4,9 +4,11 @@
 \name{gva_factors}
 \alias{gva_factors}
 \title{GVA Factors}
-\format{A data frame with fout variables: \code{year}: year,
+\format{
+A data frame with fout variables: \code{year}: year,
  \code{discount}: discount rate, \code{gva_growth}: GVA growth rates from
- PAG, \code{gva_compound}: GVA growth compounded}
+ PAG, \code{gva_compound}: GVA growth compounded
+}
 \usage{
 gva_factors
 }

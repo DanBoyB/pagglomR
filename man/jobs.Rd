@@ -4,12 +4,14 @@
 \name{jobs}
 \alias{jobs}
 \title{Sample Jobs}
-\format{A dataframe with 6 variables: \code{Manufacturing}: jobs
+\format{
+A dataframe with 6 variables: \code{Manufacturing}: jobs
 in manufacturing sector, \code{Construction}: jobs in construction sector,
 \code{Wholesale_Retail}: jobs in wholesale & retail sector,
 \code{Inf_Comm_Tech}: jobs in information, communication & technology
  sector, #' \code{Fin_Bus_Services}: jobs in financial & business services
- sector.}
+ sector.
+}
 \usage{
 jobs
 }

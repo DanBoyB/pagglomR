@@ -1,13 +1,22 @@
 #' Calculate effective densities
 #'
-#' This function reads in a matrix of generalised costs and calculates the
-#' effective densities for each origin destination pair
+#' This function reads in a list of generalised costs by origin-destination pair
+#' and also a dataframe of jobs by sector. It calculates the effective densities
+#' for each modelled zone and for each employment sector.
 #'
-#' @param gen_costs dataframe of generalised costs
-#' @param jobs dataframe of jobs
-#' @param year modelled year
+#' @param gen_costs a dataframe of generalised costs in the following format:
+#'  `origin_zone`, `destination_zone`, `generalised_cost`
+#' @param jobs a dataframe of jobs in each sector for each modelled zone. If the
+#' analysis is being undertaken using the TII National Transport Model, the
+#' \code{\link{jobs}} data file provided with the `pagglomR` package can be
+#' used. For other models, this file needs to be prepared for the transport
+#' zone system in question.
+#' @param year the modelled year. It is important that this is correctly
+#' specified for the purposes of the productivity calculations and subsequent
+#' discounting required.
 #' @keywords agglomeration, effective density
 #' @return A list containing the modelled year and an effective density matrix
+#' that are required for the productivity calculations.
 #' @export
 
 calc_eff_dens <- function(gen_costs, jobs, year) {

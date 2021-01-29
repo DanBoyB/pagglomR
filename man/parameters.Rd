@@ -4,9 +4,11 @@
 \name{parameters}
 \alias{parameters}
 \title{Agglomeration Parameters}
-\format{A data frame with 2 variables: \code{sector}: Sector,
+\format{
+A data frame with 2 variables: \code{sector}: Sector,
 \code{gva_person}: GVA per person, \code{decay_parameter}: distance decay
-parameter, \code{elasticity}: elasticity of effictive density to productivity}
+parameter, \code{elasticity}: elasticity of effictive density to productivity
+}
 \usage{
 parameters
 }

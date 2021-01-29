@@ -4,9 +4,11 @@
 \name{dm_2054}
 \alias{dm_2054}
 \title{Do Minimum 2054}
-\format{A tibble with 3 variables: \code{o_zone}: Origin Zone,
+\format{
+A tibble with 3 variables: \code{o_zone}: Origin Zone,
 \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
-OD pair}
+OD pair
+}
 \usage{
 dm_2054
 }

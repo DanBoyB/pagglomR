@@ -4,9 +4,11 @@
 \name{ds_2039}
 \alias{ds_2039}
 \title{Do Something 2039}
-\format{A tibble with 3 variables: \code{o_zone}: Origin Zone,
+\format{
+A tibble with 3 variables: \code{o_zone}: Origin Zone,
 \code{d_zone}: Destination Zone, \code{gen_cost}: generalised cost for each
-OD pair}
+OD pair
+}
 \usage{
 ds_2039
 }

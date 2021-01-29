@@ -7,18 +7,27 @@
 calc_eff_dens(gen_costs, jobs, year)
 }
 \arguments{
-\item{gen_costs}{dataframe of generalised costs}
+\item{gen_costs}{a dataframe of generalised costs in the following format:
+`origin_zone`, `destination_zone`, `generalised_cost`}
 
-\item{jobs}{dataframe of jobs}
+\item{jobs}{a dataframe of jobs in each sector for each modelled zone. If the
+analysis is being undertaken using the TII National Transport Model, the
+\code{\link{jobs}} data file provided with the `pagglomR` package can be
+used. For other models, this file needs to be prepared for the transport
+zone system in question.}
 
-\item{year}{modelled year}
+\item{year}{the modelled year. It is important that this is correctly
+specified for the purposes of the productivity calculations and subsequent
+discounting required.}
 }
 \value{
 A list containing the modelled year and an effective density matrix
+that are required for the productivity calculations.
 }
 \description{
-This function reads in a matrix of generalised costs and calculates the
-effective densities for each origin destination pair
+This function reads in a list of generalised costs by origin-destination pair
+and also a dataframe of jobs by sector. It calculates the effective densities
+for each modelled zone and for each employment sector.
 }
 \keyword{agglomeration,}
 \keyword{density}

@@ -13,15 +13,19 @@ calc_prod_impacts(eff_dens_dm, eff_dens_ds, jobs)
 \item{eff_dens_ds}{Do Something effective density object create by
 \code{\link{calc_eff_dens}}}
 
-\item{jobs}{dataframe of jobs}
+\item{jobs}{a dataframe of jobs in each sector for each modelled zone. If the
+analysis is being undertaken using the TII National Transport Model, the
+\code{\link{jobs}} data file provided with the `pagglomR` package can be
+used. For other models, this file needs to be prepared for the transport
+zone system in question.}
 }
 \value{
 A list containing the modelled year and a productivity matrix
 }
 \description{
 This function reads in Do Minimum and Do Something effective density matrices,
-and jobs data and applies the PAG agglomeration parameters to calculate
-producvity impacts for the inputted model year
+and jobs data and applies the TII PAG Irish agglomeration parameters to
+calculate productivity impacts for the relevant modelled year.
 }
 \keyword{agglomeration,}
 \keyword{productivity}
