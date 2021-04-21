@@ -16,17 +16,17 @@ version. A stable version will be uploaded to CRAN in due course.
 ## Information
 
 The `pagglomR` package has been developed for use on national roads projects in
-line with the TII Project Appraisal Guidelines (PAG). However it is a flexible 
-tool that can also be used for public transport and multi-modal assessments.
+line with the TII Project Appraisal Guidelines (PAG). It is a flexible tool 
+that can also be used for public transport and multi-modal assessments.
 
 For further information on the transport modelling analysis required to develop 
-the necessary inputs of the `pagglomR`tool, refer to 
+the necessary inputs for the `pagglomR`tool, refer to 
 *PAG Unit 6.9 - Wider Impacts*.
 
-The relevent economic parameters built into the `pagglomR` package are taken 
+The relevant economic parameters built into the `pagglomR` package are taken 
 from the DPER *Public Spending Code (2019)*, the DoT 
 *Common Appraisal Framework for Transport Projects and Programmes (2016)* and 
-TII *PAG Unit 6.11 - National Parameter Values Sheet (2021)*
+TII *PAG Unit 6.11 - National Parameter Values Sheet (2021)*.
 
 ## Key requirements
 
