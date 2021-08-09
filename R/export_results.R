@@ -12,6 +12,7 @@
 #' report or "csv" for a csv table of the discounted benefits by year.
 #' @param scheme_name input the scheme name to be included in the MS Word report
 #' @param report_date input the date to be included in the MS Word report
+#' @param file_name input name of file for .docx or .csv output
 #' @keywords agglomeration, benefits, report, output, results
 #' @importFrom rmarkdown render word_document
 #' @importFrom here here
@@ -22,9 +23,26 @@ export_results <- function(benefits_summary,
                            benefits_discounted,
                            output_format = c("report",
                                              "csv"),
-                           output_file,
                            scheme_name,
-                           report_date) {
+                           report_date,
+                           file_name) {
+
+    # error messages
+    if(missing(file_name)) {
+        stop("Specify a file name using the file_name argument")
+    }
+
+    if(output_format == "csv" && missing(benefits_summary)) {
+        stop("Summary benefits object missing")
+    }
+
+    if(missing(benefits_discounted)) {
+        stop("Discounted benefits object missing")
+    }
+
+    if(missing(output_format)) {
+        stop("Specify an output format ('csv' or 'report') using the output_format argument")
+    }
 
     if(output_format == "report") {
 
@@ -33,14 +51,14 @@ export_results <- function(benefits_summary,
             output_format = rmarkdown::word_document(
                 reference_docx = "template.docx"
                 ),
-            output_file = here::here("sample-report-test.docx")
+            output_file = here::here(paste0(file_name, ".docx"))
             )
     }
 
     if(output_format == "csv-summary") {
 
         write.csv(benefits_discounted,
-                  here::here("discounted-benefits.csv")
+                  here::here(paste0(file_name, ".csv"))
                   )
 
     }

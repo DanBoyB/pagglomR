@@ -8,9 +8,9 @@ export_results(
   benefits_summary,
   benefits_discounted,
   output_format = c("report", "csv"),
-  output_file,
   scheme_name,
-  report_date
+  report_date,
+  file_name
 )
 }
 \arguments{
@@ -26,6 +26,8 @@ report or "csv" for a csv table of the discounted benefits by year.}
 \item{scheme_name}{input the scheme name to be included in the MS Word report}
 
 \item{report_date}{input the date to be included in the MS Word report}
+
+\item{file_name}{input name of file for .docx or .csv output}
 }
 \value{
 A table of benefits over the 60 year appraisal period
