@@ -1,0 +1,64 @@
+---
+title: "Analysis of Agglomeration Impacts"
+author: "`r scheme_name`"
+date: "`r report_date`"
+output:
+  word_document:
+    reference_docx: template.docx
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(dplyr)
+# source("/home/dan/R/projects/agglomeration/package/test.R")
+```
+
+## Summary of Agglomeration Impacts
+
+\newline
+
+```{r}
+# function to add euro symbol
+euro_format <- function(x) {
+  paste("\U20AC", scales::comma(x))
+}
+
+# convert numbers to euro currency format
+summary_benefits_render <- benefits_summary %>% 
+    mutate(across(where(is.numeric), euro_format))
+
+# render as table using kable
+summary_benefits_render %>% 
+    knitr::kable(format = "simple",
+                 col.names = c("Appraisal period", "Present Value Benefits"),
+                 align = 'lll') 
+```
+
+\newline
+
+**Total Agglomeration Benefits: `r paste("€", scales::comma(sum(summary_benefits$pv_benefits)))`**
+
+\newline
+
+## Table of Agglomeration Impacts
+
+\newline
+
+```{r}
+# convert numbers to euro currency format
+disc_benefits_render <- benefits_discounted %>% 
+    mutate(across(c(2, 4, 5), euro_format)) %>% 
+    select(-appraisal_year)
+
+# render as table using kable
+disc_benefits_render %>% 
+    knitr::kable(format = "simple", 
+                 col.names = c("Year", 
+                           "Modelled Benefits", 
+                           "Nominal Benefits", 
+                           "Present Value Benefits"),
+                 align = 'lll') 
+```
+
+Analysis undertaken using `pagglomR()` package in `R` - version no. 
+`r packageVersion("pagglomR")` developed and maintained by TII
