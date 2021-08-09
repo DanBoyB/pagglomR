@@ -22,5 +22,6 @@ Imports:
     dplyr,
     zoo,
     tibble,
-    magrittr
+    magrittr,
+    here
 VignetteBuilder: knitr
