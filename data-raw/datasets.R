@@ -22,11 +22,11 @@ discount_rate <- c(0.04, 0.035, 0.03, 0.025, 0.02, 0.015)
 
 gva_factors <- tibble(year = 2016:2200) %>%
     mutate(appraisal_year = case_when(
-        year < format(Sys.Date(), "%Y") ~ NA_real_,
+        year < format(Sys.Date(), "%Y") ~ 0,
         year >= format(Sys.Date(), "%Y") ~ (row_number() - (as.numeric(format(Sys.Date(), "%Y")) - 2016))
         )) %>%
     mutate(discount = case_when(
-        appraisal_year %in% 1:30 ~ 1/((1 + discount_rate[1]) ^ (year - 2011)),
+        appraisal_year %in% 0:30 ~ 1/((1 + discount_rate[1]) ^ (year - 2011)),
         appraisal_year %in% 31:60 ~ 1/((1 + discount_rate[2]) ^ (year - 2011)),
         appraisal_year %in% 61:100 ~ 1/((1 + discount_rate[3]) ^ (year - 2011)),
         appraisal_year %in% 101:175 ~ 1/((1 + discount_rate[4]) ^ (year - 2011)),

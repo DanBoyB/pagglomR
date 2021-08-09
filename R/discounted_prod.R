@@ -32,30 +32,11 @@ discounted_prod <- function(appraisal_year, ...) {
     years <- prod_df[, 1]
     initial_years <- appraisal_year:(prod_df[, 1][1] - 1)
 
-    # NEED TO MAKE THIS GENERALISABLE TO ACCOMMODATE VARIABLE INPUTS
-    # E.G. RESULTS FROM > 3 YEARS (for loop to add rows based on no. years)
-    # prod_df <- prod_df %>%
-    #     dplyr::add_row(year = (years[1] + 1):(years[2] - 1), .before = 2) %>%
-    #     dplyr::add_row(year = (years[2] + 1):(years[3] - 1),
-    #             .after = years[2] - years[1] + 1)
-    #
-    # prod_df <- prod_df %>%
-    #     dplyr::mutate(modelled = zoo::na.approx(.data$modelled)) %>%
-    #     dplyr::add_row(year = (years[3] + 1):(years[1] + 59)) %>%
-    #     dplyr::mutate(modelled = case_when(
-    #         .data$year <= years[3] ~ .data$modelled,
-    #         .data$year > years[3]  ~ nth(.data$modelled, years[3] - years[1] + 1)))
-    #
-    # prod_df <- prod_df %>%
-    #     dplyr::left_join(select(gva_factors, .data$year, .data$gva_compound, .data$discount),
-    #               by = "year") %>%
-    #     dplyr::mutate(nominal = .data$modelled * .data$gva_compound,
-    #            discounted = .data$nominal * .data$discount) %>%
-    #     dplyr::select(-.data$discount, -.data$gva_compound)
-
     discounting_df <- data.frame(year = years[1]:years[length(years)]) %>%
-        left_join(prod_df, by = "year") %>%
+        dplyr::left_join(prod_df, by = "year") %>%
+        # interpolate between modelled years
         dplyr::mutate(modelled = zoo::na.approx(.data$modelled)) %>%
+        # add years up to 60 year appraisal period
         dplyr::add_row(year = (years[length(years)] + 1):(years[1] + 59)) %>%
         # add sequence of years from appraisal year (current) to opening year
         dplyr::add_row(year = initial_years, .before = 1) %>%
