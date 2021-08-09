@@ -7,7 +7,7 @@
 #' @param benefits_summary the \code{R} object output by the
 #' \code{\link{prod_summary}} function
 #' @param benefits_discounted the \code{R} object output by the
-#' \code{\link{prod_summary}} function
+#' \code{\link{discounted_prod}} function
 #' @param output_format specify the output format as "report" for an MS Word
 #' report or "csv" for a csv table of the discounted benefits by year.
 #' @param scheme_name input the scheme name to be included in the MS Word report
