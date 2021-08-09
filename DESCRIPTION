@@ -1,11 +1,14 @@
 Package: pagglomR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A package for calculating the agglomeration impacts of transport projects
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Dan Brennan, TII
+Maintainer: dan.brennan@tii.ie
+Description: This package takes outputs from a transport model and calculates 
+the agglomeration impacts based on the methodology of TII PAG Unit 6.9 - Wider
+Impacts (PE-PAG-02028). This package was developed for use on Irish national 
+road projects but can also be used to assess impacts of Irish public transport
+projects.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
