@@ -28,7 +28,7 @@ export_results <- function(benefits_summary,
                            report_date) {
 
     # error messages
-    if(output_format == "csv" && missing(benefits_summary)) {
+    if(output_format == "report" && missing(benefits_summary)) {
         stop("Summary benefits object missing")
     }
 
