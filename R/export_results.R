@@ -16,6 +16,7 @@
 #' @keywords agglomeration, benefits, report, output, results
 #' @importFrom rmarkdown render word_document
 #' @importFrom here here
+#' @importFrom tcltk tk_choose.files
 #' @return A table of benefits over the 60 year appraisal period
 #' @export
 #'
@@ -46,19 +47,31 @@ export_results <- function(benefits_summary,
 
     if(output_format == "report") {
 
+        filters <- matrix(c("Word Document", ".docx"),
+                          1, 2, byrow = TRUE)
+
         rmarkdown::render(
             system.file("rmd", "output-results-word.Rmd", package = "pagglomR"),
             output_format = rmarkdown::word_document(
                 reference_docx = system.file("rmd", "template.docx", package = "pagglomR")
                 ),
-            output_file = file.choose(new = TRUE)
+            output_file = tcltk::tk_choose.files(
+                caption = "Save report as .docx file",
+                multi = FALSE,
+                filter = filters)
             )
     }
 
     if(output_format == "csv-summary") {
 
+        filters <- matrix(c("CSV File", ".csv"),
+                          1, 2, byrow = TRUE)
+
         write.csv(benefits_discounted,
-                  file.choose(new = TRUE)
+                  tcltk::tk_choose.files(
+                      caption = "Save table as .csv file",
+                      multi = FALSE,
+                      filter = filters)
                   )
 
     }
