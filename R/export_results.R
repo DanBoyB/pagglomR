@@ -47,7 +47,7 @@ export_results <- function(benefits_summary,
     if(output_format == "report") {
 
         rmarkdown::render(
-            here::here("inst", "rmd", "output-results-word.Rmd"),
+            "output-results-word.Rmd",
             output_format = rmarkdown::word_document(
                 reference_docx = "template.docx"
                 ),
