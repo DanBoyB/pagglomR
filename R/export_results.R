@@ -51,14 +51,14 @@ export_results <- function(benefits_summary,
             output_format = rmarkdown::word_document(
                 reference_docx = system.file("rmd", "template.docx", package = "pagglomR")
                 ),
-            output_file = here::here(paste0(file_name, ".docx"))
+            output_file = file.choose(new = TRUE)
             )
     }
 
     if(output_format == "csv-summary") {
 
         write.csv(benefits_discounted,
-                  here::here(paste0(file_name, ".csv"))
+                  file.choose(new = TRUE)
                   )
 
     }
