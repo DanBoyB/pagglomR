@@ -51,7 +51,7 @@ export_results <- function(benefits_summary,
             )
     }
 
-    if(output_format == "csv-summary") {
+    if(output_format == "csv") {
 
         write.csv(benefits_discounted,
                   file.choose(new = TRUE)

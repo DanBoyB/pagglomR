@@ -36,7 +36,7 @@ summary_benefits_render %>%
 
 \newline
 
-**Total Agglomeration Benefits: `r paste("€", scales::comma(sum(summary_benefits$pv_benefits)))`**
+**Total Agglomeration Benefits: `r paste("€", scales::comma(sum(benefits_summary$pv_benefits)))`**
 
 \newline
 
