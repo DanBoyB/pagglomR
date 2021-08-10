@@ -12,11 +12,12 @@
 #' report or "csv" for a csv table of the discounted benefits by year.
 #' @param scheme_name input the scheme name to be included in the MS Word report
 #' @param report_date input the date to be included in the MS Word report
-#' @param file_name input name of file for .docx or .csv output
 #' @keywords agglomeration, benefits, report, output, results
 #' @importFrom rmarkdown render word_document
 #' @importFrom here here
-#' @return A table of benefits over the 60 year appraisal period
+#' @return An MS Word report summary or a csv table of results of
+#' agglomeration impacts. Allows user to interactively set file name. N.B.
+#' ensure that correct file extension is specified.
 #' @export
 #'
 export_results <- function(benefits_summary,
@@ -24,14 +25,9 @@ export_results <- function(benefits_summary,
                            output_format = c("report",
                                              "csv"),
                            scheme_name,
-                           report_date,
-                           file_name) {
+                           report_date) {
 
     # error messages
-    if(missing(file_name)) {
-        stop("Specify a file name using the file_name argument")
-    }
-
     if(output_format == "csv" && missing(benefits_summary)) {
         stop("Summary benefits object missing")
     }
