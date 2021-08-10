@@ -47,9 +47,9 @@ export_results <- function(benefits_summary,
     if(output_format == "report") {
 
         rmarkdown::render(
-            "output-results-word.Rmd",
+            system.file("rmd", "output-results-word.Rmd", package = "pagglomR"),
             output_format = rmarkdown::word_document(
-                reference_docx = "template.docx"
+                reference_docx = system.file("rmd", "template.docx", package = "pagglomR")
                 ),
             output_file = here::here(paste0(file_name, ".docx"))
             )
