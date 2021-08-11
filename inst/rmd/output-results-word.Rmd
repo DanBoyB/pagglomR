@@ -10,8 +10,39 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(dplyr)
+library(pagglomR)
 # source("/home/dan/R/projects/agglomeration/package/test.R")
 ```
+
+**Scenario: `r scheme_scenario`**
+**Opening Year: `r scheme_opening_year`**
+
+## Input Parameters
+
+```{r}
+discount_rate <- c(0.04, 0.035, 0.03, 0.025, 0.02, 0.015)
+
+gen_params <- c(
+  "Scheme Opening Year", 
+  "Discount Rate (Year 1-30)",
+  "Discount Rate (Year 31-60)",
+  "Discount Rate (Year 61-90)",
+  "Assumed annual inflation rate (2020-2024)",
+  "Assumed annual inflation rate (2025+)"
+)
+
+gen_values <- c(scheme_opening_year,
+                scales::percent(discount_rate[1]),
+                scales::percent(discount_rate[2]),
+                scales::percent(discount_rate[3]),
+                scales::percent(0.022, accuracy = 0.1),
+                scales::percent(0.022, accuracy = 0.1))
+
+tibble(Parameter = gen_params,
+       Value = gen_values) %>% 
+  knitr::kable(format = "simple", align = 'll') 
+```
+
 
 ## Summary of Agglomeration Impacts
 
@@ -56,7 +87,7 @@ disc_benefits_render %>%
                  col.names = c("Year", 
                            "Modelled Benefits", 
                            "Nominal Benefits", 
-                           "Present Value Benefits"),
+                           "Present Value Benefits (2011 prices)"),
                  align = 'lll') 
 ```
 
