@@ -11,6 +11,12 @@ output:
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(dplyr)
 library(pagglomR)
+
+# function to add euro symbol
+euro_format <- function(x) {
+  paste("\U20AC", scales::comma(x))
+}
+
 # source("/home/dan/R/projects/agglomeration/package/test.R")
 ```
 
@@ -50,6 +56,7 @@ tibble(Parameter = gen_params,
 
 ```{r}
 pagglomR::parameters %>% 
+  mutate(across(c(2), euro_format)) %>% 
   knitr::kable(format = "simple",
                  col.names = c(
                    "Sector",
@@ -65,11 +72,6 @@ pagglomR::parameters %>%
 \newline
 
 ```{r}
-# function to add euro symbol
-euro_format <- function(x) {
-  paste("\U20AC", scales::comma(x))
-}
-
 # convert numbers to euro currency format
 summary_benefits_render <- benefits_summary %>% 
     mutate(across(where(is.numeric), euro_format))
