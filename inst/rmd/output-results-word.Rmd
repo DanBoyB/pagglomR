@@ -15,7 +15,9 @@ library(pagglomR)
 ```
 
 **Scenario: `r scheme_scenario`**
+
 \newline
+
 **Opening Year: `r scheme_opening_year`**
 
 ## General Appraisal Input Parameters
