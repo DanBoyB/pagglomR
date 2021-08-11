@@ -9,6 +9,8 @@ export_results(
   benefits_discounted,
   output_format = c("report", "csv"),
   scheme_name,
+  scheme_scenario,
+  scheme_opening_year,
   report_date
 )
 }
@@ -22,7 +24,13 @@ export_results(
 \item{output_format}{specify the output format as "report" for an MS Word
 report or "csv" for a csv table of the discounted benefits by year.}
 
-\item{scheme_name}{input the scheme name to be included in the MS Word report}
+\item{scheme_name}{input a text string with the scheme name to be included in
+the MS Word report}
+
+\item{scheme_scenario}{input a text string describing the scenario being
+tested be included in the MS Word report}
+
+\item{scheme_opening_year}{specify the scheme opening year}
 
 \item{report_date}{input the date to be included in the MS Word report}
 }

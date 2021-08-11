@@ -10,7 +10,11 @@
 #' \code{\link{discounted_prod}} function
 #' @param output_format specify the output format as "report" for an MS Word
 #' report or "csv" for a csv table of the discounted benefits by year.
-#' @param scheme_name input the scheme name to be included in the MS Word report
+#' @param scheme_name input a text string with the scheme name to be included in
+#'  the MS Word report
+#' @param scheme_scenario input a text string describing the scenario being
+#' tested be included in the MS Word report
+#' @param scheme_opening_year specify the scheme opening year
 #' @param report_date input the date to be included in the MS Word report
 #' @keywords agglomeration, benefits, report, output, results
 #' @importFrom rmarkdown render word_document
