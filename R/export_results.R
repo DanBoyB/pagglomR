@@ -25,6 +25,8 @@ export_results <- function(benefits_summary,
                            output_format = c("report",
                                              "csv"),
                            scheme_name,
+                           scheme_scenario,
+                           scheme_opening_year,
                            report_date) {
 
     # error messages
