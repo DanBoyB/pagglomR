@@ -16,10 +16,6 @@ discounted_benefits <- discounted_prod(appraisal_year = 2020,
                                        prod_2039,
                                        prod_2054)
 
-path_jobs <- "/home/dan/R/projects/agglomeration/aecom-python/foynes-limerick/Jobs.txt"
-
-jobs <- read_jobs(path_jobs)
-
 # Undertake tests ---------------------------------------------------------
 
 context("Case Study Tests")
