@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/TII-STP/pagglomR/workflows/R-CMD-check/badge.svg)](https://github.com/TII-STP/pagglomR/actions)
+[![Codecov test coverage](https://codecov.io/gh/TII-STP/pagglomR/branch/master/graph/badge.svg)](https://codecov.io/gh/TII-STP/pagglomR?branch=master)
 <!-- badges: end -->
 
 A package for calculating the agglomeration impacts of transport projects in 

@@ -11,3 +11,4 @@
 ^pagglomR.*\.tar\.gz$
 ^pagglomR.*\.tgz$
 ^\.github$
+^codecov\.yml$
