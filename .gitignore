@@ -9,3 +9,6 @@ Meta
 .httr-oauth
 .DS_Store
 docs
+pagglomR.Rcheck/
+pagglomR*.tar.gz
+pagglomR*.tgz

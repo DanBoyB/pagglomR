@@ -7,3 +7,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^pagglomR\.Rcheck$
+^pagglomR.*\.tar\.gz$
+^pagglomR.*\.tgz$
