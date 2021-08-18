@@ -2,7 +2,7 @@ Package: pagglomR
 Type: Package
 Title: A package for calculating the agglomeration impacts of transport projects
 Version: 0.1.0
-Author: person("Dan", "Brennan", email = "dan.brennan@tii.ie", 
+Authors@R: person("Dan", "Brennan", email = "dan.brennan@tii.ie", 
     role = c("aut", "cre"))
 Description: This package takes outputs from a transport model and calculates 
     the agglomeration impacts based on the methodology of TII PAG Unit 6.9 - 
@@ -15,13 +15,13 @@ LazyData: true
 Depends: R (>= 2.10)
 Suggests: 
     testthat,
-    knitr,
-    rmarkdown
+    knitr
 RoxygenNote: 7.1.1
 Imports: 
     dplyr,
     zoo,
     tibble,
     magrittr,
-    here
+    here,
+    rmarkdown
 VignetteBuilder: knitr

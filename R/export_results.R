@@ -19,6 +19,7 @@
 #' @keywords agglomeration, benefits, report, output, results
 #' @importFrom rmarkdown render word_document
 #' @importFrom here here
+#' @importFrom utils write.csv
 #' @return An MS Word report summary or a csv table of results of
 #' agglomeration impacts. Allows user to interactively set file name. N.B.
 #' ensure that correct file extension is specified.

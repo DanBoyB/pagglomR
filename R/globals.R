@@ -1,1 +1,1 @@
-utils::globalVariables(c("parameters", "gva_factors"))
+utils::globalVariables(c("parameters", "gva_factors", "modelled"))
