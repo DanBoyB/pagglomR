@@ -15,7 +15,8 @@ LazyData: true
 Depends: R (>= 2.10)
 Suggests: 
     testthat,
-    knitr
+    knitr,
+    markdown
 RoxygenNote: 7.1.1
 Imports: 
     dplyr,
