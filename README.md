@@ -1,5 +1,9 @@
 # pagglomR
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/TII-STP/pagglomR/workflows/R-CMD-check/badge.svg)](https://github.com/TII-STP/pagglomR/actions)
+<!-- badges: end -->
+
 A package for calculating the agglomeration impacts of transport projects in 
 Ireland.
 

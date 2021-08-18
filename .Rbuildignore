@@ -10,3 +10,4 @@
 ^pagglomR\.Rcheck$
 ^pagglomR.*\.tar\.gz$
 ^pagglomR.*\.tgz$
+^\.github$
