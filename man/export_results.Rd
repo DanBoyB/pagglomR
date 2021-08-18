@@ -36,8 +36,8 @@ tested be included in the MS Word report}
 }
 \value{
 An MS Word report summary or a csv table of results of
-agglomeration impacts. Allows user to interactively set file name. N.B.
-ensure that correct file extension is specified.
+agglomeration impacts. Allows the user to interactively set file name. N.B.
+ensure that correct file extension is specified, i.e. .csv or .docx
 }
 \description{
 This function takes the outputs of the \code{\link{discounted_prod}} and the
