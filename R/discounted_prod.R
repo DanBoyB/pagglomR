@@ -26,7 +26,7 @@ discounted_prod <- function(appraisal_year, ...) {
                       modelled = as.numeric())
 
     for(i in 1:length(x)) {
-        prod_df[i, ] <- unlist(x[i])
+        prod_df[i, ] <- unlist(x[[i]])
     }
 
     years <- prod_df[, 1]
