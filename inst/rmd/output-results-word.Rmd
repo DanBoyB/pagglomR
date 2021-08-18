@@ -71,7 +71,7 @@ pagglomR::parameters %>%
   mutate(across(c(2), euro_format)) %>% 
   rename_with(function(x) x = c(
     "Sector",
-    "GVA per person \U20AC", 
+    "GVA per person", 
     "Distance decay parameter",
     "Elasticity of effective density to productivity"
     )) %>% 

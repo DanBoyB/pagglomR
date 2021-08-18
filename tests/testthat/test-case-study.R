@@ -31,24 +31,24 @@ test_that("Productivity projections are correct", {
     expect_equal(dim(eff_dens_ds_2054$eff_dens), c(110, 6))
 
     # # check productivity calculations
-    # expect_equal(prod_2024$prod_total, 2707225.43041139)
-    # expect_equal(prod_2039$prod_total, 2921467.68728561)
-    # expect_equal(prod_2054$prod_total, 2906733.56789363)
+    expect_equal(prod_2024$prod_total, 2707225.43041139)
+    expect_equal(prod_2039$prod_total, 2921467.68728561)
+    expect_equal(prod_2054$prod_total, 2906733.56789363)
     #
     # # check size of discounted benefits dataframe
-    # expect_equal(dim(discounted_benefits), c(60, 4))
+    expect_equal(dim(discounted_benefits), c(64, 5))
     #
     # # check nominal benefits
-    # expect_equal(sum(discounted_benefits$nominal), 454627280.39)
+    expect_equal(sum(discounted_benefits$nominal), 470993862)
     #
     # # check discounted benefits
-    # expect_equal(sum(discounted_benefits$discounted), 57916040.02)
+    expect_equal(sum(discounted_benefits$discounted), 97757122)
     #
     # # Check 30 year benefits from summary table
-    # expect_equal(prod_summary(discounted_benefits)[[1, 2]], 39469048.05)
+    expect_equal(prod_summary(discounted_benefits)[[1, 2]], 53425447)
     #
     # # Check residual value benefits from summary table
-    # expect_equal(prod_summary(discounted_benefits)[[2, 2]], 18446991.97)
+    expect_equal(prod_summary(discounted_benefits)[[2, 2]], 44331675)
 
 })
 
