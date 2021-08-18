@@ -26,3 +26,5 @@ Imports:
     rmarkdown,
     flextable
 VignetteBuilder: knitr
+URL: https://github.com/TII-STP/pagglomR
+BugReports: https://github.com/TII-STP/pagglomR/issues
