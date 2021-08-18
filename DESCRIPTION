@@ -23,5 +23,6 @@ Imports:
     tibble,
     magrittr,
     here,
-    rmarkdown
+    rmarkdown,
+    flextable
 VignetteBuilder: knitr
