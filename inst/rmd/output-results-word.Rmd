@@ -72,8 +72,8 @@ pagglomR::parameters %>%
   rename_with(function(x) x = c(
     "Sector",
     "GVA per person \U20AC", 
-    "Distance decay parameter, \U221D",
-    "Elasticity of effective density to productivity, \U03C1"
+    "Distance decay parameter",
+    "Elasticity of effective density to productivity"
     )) %>% 
   flextable() %>% 
   width(width = 1.5)
