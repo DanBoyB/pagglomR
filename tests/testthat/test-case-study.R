@@ -16,6 +16,10 @@ discounted_benefits <- discounted_prod(appraisal_year = 2020,
                                        prod_2039,
                                        prod_2054)
 
+path_jobs <- "/home/dan/R/projects/agglomeration/aecom-python/foynes-limerick/Jobs.txt"
+
+jobs <- read_jobs(path_jobs)
+
 # Undertake tests ---------------------------------------------------------
 
 context("Case Study Tests")
@@ -29,6 +33,12 @@ test_that("Productivity projections are correct", {
     expect_equal(dim(eff_dens_ds_2039$eff_dens), c(110, 6))
     expect_equal(dim(eff_dens_dm_2054$eff_dens), c(110, 6))
     expect_equal(dim(eff_dens_ds_2054$eff_dens), c(110, 6))
+
+    # check error if zone numbers not equal
+    expect_error(calc_eff_dens(dm_2024, head(jobs, -5), 2024))
+
+    # check length of jobs dataframe
+    expect_equal(dim(jobs), c(110, 6))
 
     # # check productivity calculations
     expect_equal(prod_2024$prod_total, 2707225.43041139)
@@ -52,4 +62,8 @@ test_that("Productivity projections are correct", {
 
 })
 
+test_that("Outputs are correct", {
+
+
+})
 
