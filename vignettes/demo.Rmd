@@ -78,7 +78,7 @@ dm_2024
 A sample jobs file is also included with with the `pagglomR` package.
 
 ```{r}
-head(jobs)
+head(sample_jobs)
 ```
 
 In this example we have 3 modelled years - 2024, 2039 & 2054. We have 2 
@@ -115,16 +115,16 @@ Technology and Financial and Business Services.
 
 ```{r}
 # 2024
-eff_dens_dm_2024 <- calc_eff_dens(dm_2024, jobs, 2024)
-eff_dens_ds_2024 <- calc_eff_dens(ds_2024, jobs, 2024)
+eff_dens_dm_2024 <- calc_eff_dens(dm_2024, sample_jobs, 2024)
+eff_dens_ds_2024 <- calc_eff_dens(ds_2024, sample_jobs, 2024)
 
 # 2039
-eff_dens_dm_2039 <- calc_eff_dens(dm_2039, jobs, 2039)
-eff_dens_ds_2039 <- calc_eff_dens(ds_2039, jobs, 2039)
+eff_dens_dm_2039 <- calc_eff_dens(dm_2039, sample_jobs, 2039)
+eff_dens_ds_2039 <- calc_eff_dens(ds_2039, sample_jobs, 2039)
 
 # 2054
-eff_dens_dm_2054 <- calc_eff_dens(dm_2054, jobs, 2054)
-eff_dens_ds_2054 <- calc_eff_dens(ds_2054, jobs, 2054)
+eff_dens_dm_2054 <- calc_eff_dens(dm_2054, sample_jobs, 2054)
+eff_dens_ds_2054 <- calc_eff_dens(ds_2054, sample_jobs, 2054)
 ```
 
 In the case of a multi-modal assessment, separate effective density calculations 
@@ -170,13 +170,13 @@ into an overall productivity impact in Euro (€, in 201X prices).
 
 ```{r}
 # 2024
-prod_2024 <- calc_prod_impacts(eff_dens_dm_2024, eff_dens_ds_2024, jobs)
+prod_2024 <- calc_prod_impacts(eff_dens_dm_2024, eff_dens_ds_2024, sample_jobs)
 
 # 2039
-prod_2039 <- calc_prod_impacts(eff_dens_dm_2039, eff_dens_ds_2039, jobs)
+prod_2039 <- calc_prod_impacts(eff_dens_dm_2039, eff_dens_ds_2039, sample_jobs)
 
 # 2054
-prod_2054 <- calc_prod_impacts(eff_dens_dm_2054, eff_dens_ds_2054, jobs)
+prod_2054 <- calc_prod_impacts(eff_dens_dm_2054, eff_dens_ds_2054, sample_jobs)
 ```
 
 The `discounted_prod()` function reads in the productivity benefits calculated for 

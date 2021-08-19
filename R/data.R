@@ -87,4 +87,18 @@
 #' \code{Inf_Comm_Tech}: jobs in information, communication & technology
 #'  sector, #' \code{Fin_Bus_Services}: jobs in financial & business services
 #'  sector.
-"jobs"
+"sample_jobs"
+
+#' NTpM Jobs
+#'
+#' National jobs data from the TII National Transport Model (NTpM) for use with
+#' the \code{pagglomR} package. Note that this is only compatible with the NTpM
+#' zone system and not with any other transport model.
+#'
+#' @format A dataframe with 6 variables: \code{Manufacturing}: jobs
+#' in manufacturing sector, \code{Construction}: jobs in construction sector,
+#' \code{Wholesale_Retail}: jobs in wholesale & retail sector,
+#' \code{Inf_Comm_Tech}: jobs in information, communication & technology
+#'  sector, #' \code{Fin_Bus_Services}: jobs in financial & business services
+#'  sector.
+"ntpm_jobs"

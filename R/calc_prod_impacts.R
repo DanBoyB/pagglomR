@@ -10,7 +10,7 @@
 #' \code{\link{calc_eff_dens}}
 #' @param jobs a dataframe of jobs in each sector for each modelled zone. If the
 #' analysis is being undertaken using the TII National Transport Model, the
-#' \code{\link{jobs}} data file provided with the `pagglomR` package can be
+#' \code{\link{ntpm_jobs}} data file provided with the `pagglomR` package can be
 #' used. For other models, this file needs to be prepared for the transport
 #' zone system in question.
 #' @keywords agglomeration, productivity

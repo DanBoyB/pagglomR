@@ -34,7 +34,7 @@ test_that("Productivity projections are correct", {
     expect_error(calc_eff_dens(dm_2024, head(jobs, -5), 2024))
 
     # check length of jobs dataframe
-    expect_equal(dim(jobs), c(110, 6))
+    expect_equal(dim(sample_jobs), c(110, 6))
 
     # # check productivity calculations
     expect_equal(prod_2024$prod_total, 2707225.43041139)

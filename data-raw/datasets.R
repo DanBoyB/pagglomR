@@ -52,6 +52,7 @@ path_gc_dm_2054 <- "/home/dan/R/projects/agglomeration/aecom-python/foynes-limer
 path_gc_ds_2054 <- "/home/dan/R/projects/agglomeration/aecom-python/foynes-limerick/2054Impedance_DS.txt"
 
 path_jobs <- "/home/dan/R/projects/agglomeration/aecom-python/foynes-limerick/Jobs.txt"
+path_ntpm_jobs <- "/home/dan/R/projects/agglomeration/data/ntpm-jobs.txt"
 
 read_gc <- function(path) {
     read_table2(path,
@@ -72,7 +73,8 @@ ds_2039 <- read_gc(path_gc_ds_2039)
 dm_2054 <- read_gc(path_gc_dm_2054)
 ds_2054 <- read_gc(path_gc_ds_2054)
 
-jobs <- read_jobs(path_jobs)
+sample_jobs <- read_jobs(path_jobs)
+ntpm_jobs <- read_jobs(path_ntpm_jobs)
 
 # Add tests to data/ folder -----------------------------------------------
 
@@ -85,6 +87,7 @@ usethis::use_data(dm_2024,
                   ds_2039,
                   dm_2054,
                   ds_2054,
-                  jobs,
+                  sample_jobs,
+                  ntpm_jobs,
                   internal = FALSE,
                   overwrite = TRUE)
