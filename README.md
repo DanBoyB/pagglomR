@@ -2,8 +2,11 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/TII-STP/pagglomR/workflows/R-CMD-check/badge.svg)](https://github.com/TII-STP/pagglomR/actions)
+
 [![Codecov test coverage](https://codecov.io/gh/TII-STP/pagglomR/branch/master/graph/badge.svg)](https://codecov.io/gh/TII-STP/pagglomR?branch=master)
+
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
+
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 <!-- badges: end -->
 
