@@ -3,7 +3,7 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/TII-STP/pagglomR/workflows/R-CMD-check/badge.svg)](https://github.com/TII-STP/pagglomR/actions)
 [![Codecov test coverage](https://codecov.io/gh/TII-STP/pagglomR/branch/master/graph/badge.svg)](https://codecov.io/gh/TII-STP/pagglomR?branch=master)
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
 A package for calculating the agglomeration impacts of transport projects in 
