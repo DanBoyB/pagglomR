@@ -1,4 +1,4 @@
-#' Calculate effective densities
+#' Calculate productivity impacts
 #'
 #' This function reads in Do Minimum and Do Something effective density matrices,
 #' and jobs data and applies the TII PAG Irish agglomeration parameters to

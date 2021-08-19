@@ -2,7 +2,7 @@
 % Please edit documentation in R/calc_prod_impacts.R
 \name{calc_prod_impacts}
 \alias{calc_prod_impacts}
-\title{Calculate effective densities}
+\title{Calculate productivity impacts}
 \usage{
 calc_prod_impacts(eff_dens_dm, eff_dens_ds, jobs)
 }
