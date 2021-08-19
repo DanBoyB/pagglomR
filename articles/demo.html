@@ -127,7 +127,7 @@ GC_{i, j} ^ {S, m, f} &amp;= \frac{\sum_{p} \ GC_{i, j} ^ {S, m, p, f} \ T_{i, j
 <span class="co">#&gt; # … with 12,090 more rows</span></code></pre></div>
 <p>A sample jobs file is also included with with the <code>pagglomR</code> package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">jobs</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sample_jobs</span><span class="op">)</span>
 <span class="co">#&gt;   Manufacturing Construction Wholesale_Retail Transport Inf_Comm_Tech</span>
 <span class="co">#&gt; 1          4398           94                0      2972             0</span>
 <span class="co">#&gt; 2            27           25                0       190             0</span>
@@ -157,16 +157,16 @@ d_i^{S, k, f} &amp;= \sum_{j} \sum_{m} \frac{E_j^{S,f}}{(GC_{i,j}^{S,m,f})a^k}
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 2024</span>
-<span class="va">eff_dens_dm_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2024</span>, <span class="va">jobs</span>, <span class="fl">2024</span><span class="op">)</span>
-<span class="va">eff_dens_ds_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2024</span>, <span class="va">jobs</span>, <span class="fl">2024</span><span class="op">)</span>
+<span class="va">eff_dens_dm_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2024</span>, <span class="va">sample_jobs</span>, <span class="fl">2024</span><span class="op">)</span>
+<span class="va">eff_dens_ds_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2024</span>, <span class="va">sample_jobs</span>, <span class="fl">2024</span><span class="op">)</span>
 
 <span class="co"># 2039</span>
-<span class="va">eff_dens_dm_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2039</span>, <span class="va">jobs</span>, <span class="fl">2039</span><span class="op">)</span>
-<span class="va">eff_dens_ds_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2039</span>, <span class="va">jobs</span>, <span class="fl">2039</span><span class="op">)</span>
+<span class="va">eff_dens_dm_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2039</span>, <span class="va">sample_jobs</span>, <span class="fl">2039</span><span class="op">)</span>
+<span class="va">eff_dens_ds_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2039</span>, <span class="va">sample_jobs</span>, <span class="fl">2039</span><span class="op">)</span>
 
 <span class="co"># 2054</span>
-<span class="va">eff_dens_dm_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2054</span>, <span class="va">jobs</span>, <span class="fl">2054</span><span class="op">)</span>
-<span class="va">eff_dens_ds_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2054</span>, <span class="va">jobs</span>, <span class="fl">2054</span><span class="op">)</span></code></pre></div>
+<span class="va">eff_dens_dm_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">dm_2054</span>, <span class="va">sample_jobs</span>, <span class="fl">2054</span><span class="op">)</span>
+<span class="va">eff_dens_ds_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_eff_dens.html">calc_eff_dens</a></span><span class="op">(</span><span class="va">ds_2054</span>, <span class="va">sample_jobs</span>, <span class="fl">2054</span><span class="op">)</span></code></pre></div>
 <p>In the case of a multi-modal assessment, separate effective density calculations should be run using the generalised costs from the private and public transport modes. These matrices should then be summed for each forecast year and scenario to form the effective density matrices to be then used for the calculation of productivity impacts.</p>
 <p>We can then calculate the productivity impacts for each modelled year using the effective density calculations for the “Do Minimum” and “Do Something” scenarios and the jobs data. The productivity impacts are calculated by applying the following formula:</p>
 <p><span class="math display">\[
@@ -184,13 +184,13 @@ WEI_i^{k, f} &amp;= \left[ \left( \frac{d_i^{DS, k, f}}{d_i^{DM, k, f}} \right)^
 <p>The <code><a href="../reference/calc_prod_impacts.html">calc_prod_impacts()</a></code> function sums the above sectoral agglomeration impacts into an overall productivity impact in Euro (€, in 201X prices).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 2024</span>
-<span class="va">prod_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2024</span>, <span class="va">eff_dens_ds_2024</span>, <span class="va">jobs</span><span class="op">)</span>
+<span class="va">prod_2024</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2024</span>, <span class="va">eff_dens_ds_2024</span>, <span class="va">sample_jobs</span><span class="op">)</span>
 
 <span class="co"># 2039</span>
-<span class="va">prod_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2039</span>, <span class="va">eff_dens_ds_2039</span>, <span class="va">jobs</span><span class="op">)</span>
+<span class="va">prod_2039</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2039</span>, <span class="va">eff_dens_ds_2039</span>, <span class="va">sample_jobs</span><span class="op">)</span>
 
 <span class="co"># 2054</span>
-<span class="va">prod_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2054</span>, <span class="va">eff_dens_ds_2054</span>, <span class="va">jobs</span><span class="op">)</span></code></pre></div>
+<span class="va">prod_2054</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calc_prod_impacts.html">calc_prod_impacts</a></span><span class="op">(</span><span class="va">eff_dens_dm_2054</span>, <span class="va">eff_dens_ds_2054</span>, <span class="va">sample_jobs</span><span class="op">)</span></code></pre></div>
 <p>The <code><a href="../reference/discounted_prod.html">discounted_prod()</a></code> function reads in the productivity benefits calculated for each modelled year and interpolates values for years in between the modelled years.</p>
 <p>It also calculates nominal productivity benefits per annum by applying GVA growth based on the rates in Table 4 of PAG Unit 6.11. Discounted benefits are then calculated by applying the test discount rate to the nominal benefits. This is undertaken for the 30 year appraisal period plus a 30 year residual value period.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
