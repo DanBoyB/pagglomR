@@ -44,7 +44,10 @@ export_results <- function(benefits_summary,
     }
 
     if(missing(output_format)) {
-        stop("Specify an output format ('csv' or 'report') using the output_format argument")
+        stop(
+            paste0("Specify an output format ('csv' or 'report') ",
+                   "using the output_format argument")
+        )
     }
 
     if(output_format == "report") {
@@ -52,7 +55,9 @@ export_results <- function(benefits_summary,
         rmarkdown::render(
             system.file("rmd", "output-results-word.Rmd", package = "pagglomR"),
             output_format = rmarkdown::word_document(
-                reference_docx = system.file("rmd", "template.docx", package = "pagglomR")
+                reference_docx = system.file("rmd",
+                                             "template.docx",
+                                             package = "pagglomR")
                 ),
             output_file = file.choose(new = TRUE)
             )

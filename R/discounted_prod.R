@@ -45,14 +45,17 @@ discounted_prod <- function(appraisal_year, ...) {
         # apply the benefits in latest horizon year to remaining appraisal years
         dplyr::mutate(modelled = case_when(
             .data$year <= years[length(years)] ~ .data$modelled,
-            .data$year > years[length(years)]  ~ nth(.data$modelled,
-                                                     years[length(years)] - initial_years[1] + 1))) %>%
+            .data$year > years[length(years)]  ~
+                nth(.data$modelled,
+                    years[length(years)] - initial_years[1] + 1))) %>%
         dplyr::mutate(modelled = case_when(
             is.na(modelled) ~ 0,
             TRUE ~ as.numeric(modelled)
         )) %>%
-        dplyr::left_join(select(gva_factors, .data$year, .data$gva_compound, .data$discount),
-                         by = "year") %>%
+        dplyr::left_join(
+            select(gva_factors, .data$year, .data$gva_compound, .data$discount),
+            by = "year"
+            ) %>%
         dplyr::mutate(nominal = .data$modelled * .data$gva_compound,
                       discounted = .data$nominal * .data$discount) %>%
         dplyr::select(-.data$discount, -.data$gva_compound)

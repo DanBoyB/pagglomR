@@ -56,7 +56,8 @@ calc_eff_dens <- function(gen_costs, jobs, year) {
         for(i in 1:no_zones) {
 
             # calc matrix of effective densities
-            eff_dens_zone[i, ] <- total_jobs / (gen_costs[i, ] ^ decay_parameter)
+            eff_dens_zone[i, ] <- total_jobs /
+                (gen_costs[i, ] ^ decay_parameter)
 
         }
 

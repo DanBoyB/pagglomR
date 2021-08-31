@@ -1,8 +1,8 @@
 #' Calculate productivity impacts
 #'
-#' This function reads in Do Minimum and Do Something effective density matrices,
-#' and jobs data and applies the TII PAG Irish agglomeration parameters to
-#' calculate productivity impacts for the relevant modelled year.
+#' This function reads in Do Minimum and Do Something effective density
+#' matrices, and jobs data and applies the TII PAG Irish agglomeration
+#' parameters to calculate productivity impacts for the relevant modelled year.
 #'
 #' @param eff_dens_dm Do Minimum effective density object create by
 #' \code{\link{calc_eff_dens}}
@@ -33,13 +33,22 @@ calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
     }
 
     if(error_fn_ed(eff_dens_dm, eff_dens_ds) == FALSE)
-        stop("No. of zones in Do Min Effective Densities must equal no. of zones in Do Some Effective Densities")
+        stop(
+            paste0("No. of zones in Do Min Effective Densities must equal ",
+                   "no. of zones in Do Some Effective Densities")
+            )
 
     if(error_fn_jobs(eff_dens_dm, jobs) == FALSE)
-        stop("No. of zones in jobs file must equal no. of zones in Do Min Effective Densities")
+        stop(
+            paste0("No. of zones in jobs file must equal ",
+                   "no. of zones in Do Min Effective Densities")
+        )
 
     if(error_fn_jobs(eff_dens_ds, jobs) == FALSE)
-        stop("No. of zones in jobs file must equal no. of zones in Do Some Effective Densities")
+        stop(
+            paste0("No. of zones in jobs file must equal ",
+                   "no. of zones in Do Some Effective Densities")
+        )
 
     # calculate number of zones and number of sectors
     no_zones <- nrow(eff_dens_dm$eff_dens)
@@ -52,7 +61,8 @@ calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
     productivity <- matrix(0, no_zones, no_sectors)
 
     for(i in 1:no_sectors) {
-        productivity[, i] <- (((eff_dens_ds$eff_dens[, i] / eff_dens_dm$eff_dens[, i]) ^
+        productivity[, i] <- (((eff_dens_ds$eff_dens[, i] /
+                                    eff_dens_dm$eff_dens[, i]) ^
                                    parameters$elasticity[i]) - 1) *
             parameters$gva_person[i] * jobs_matrix[, i]
     }
