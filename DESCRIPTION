@@ -1,32 +1,37 @@
-Package: pagglomR
 Type: Package
-Title: Calculating the Agglomeration Impacts of Transport Projects
+Package: pagglomR
+Title: Calculating the Agglomeration Impacts of Transport
+    Projects
 Version: 0.1.0
-Authors@R: person("Dan", "Brennan", email = "dan.brennan@tii.ie", 
-    role = c("aut", "cre"))
-Description: Takes outputs from a transport model and calculates 
-    the agglomeration impacts based on the methodology of TII PAG Unit 6.9 - 
-    Wider Impacts (PE-PAG-02028). Developed for use on Irish 
-    national road projects but can also be used to assess impacts of Irish 
-    public transport projects.
+Authors@R: 
+    person(given = "Dan",
+           family = "Brennan",
+           role = c("aut", "cre"),
+           email = "dan.brennan@tii.ie")
+Description: Takes outputs from a transport model and calculates
+    the agglomeration impacts based on the methodology of TII PAG Unit 6.9
+    - Wider Impacts (PE-PAG-02028). Developed for use on Irish national
+    road projects but can also be used to assess impacts of Irish public
+    transport projects.
 License: GPL-3 + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Depends: R (>= 2.10)
-Suggests: 
-    testthat,
-    knitr,
-    markdown,
-    covr
-RoxygenNote: 7.1.1
-Imports: 
-    dplyr,
-    zoo,
-    tibble,
-    magrittr,
-    here,
-    rmarkdown,
-    flextable
-VignetteBuilder: knitr
 URL: https://tii-stp.github.io/pagglomR/index.html
 BugReports: https://github.com/TII-STP/pagglomR/issues
+Depends: 
+    R (>= 2.10)
+Imports: 
+    dplyr,
+    here,
+    magrittr,
+    rmarkdown,
+    tibble,
+    zoo
+Suggests: 
+    covr,
+    knitr,
+    markdown,
+    testthat
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1

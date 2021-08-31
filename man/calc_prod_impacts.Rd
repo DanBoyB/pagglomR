@@ -23,9 +23,9 @@ zone system in question.}
 A list containing the modelled year and a productivity matrix
 }
 \description{
-This function reads in Do Minimum and Do Something effective density matrices,
-and jobs data and applies the TII PAG Irish agglomeration parameters to
-calculate productivity impacts for the relevant modelled year.
+This function reads in Do Minimum and Do Something effective density
+matrices, and jobs data and applies the TII PAG Irish agglomeration
+parameters to calculate productivity impacts for the relevant modelled year.
 }
 \keyword{agglomeration,}
 \keyword{productivity}
