@@ -26,8 +26,10 @@ line with the TII Project Appraisal Guidelines (PAG). It is a flexible tool
 that can also be used for public transport and multi-modal assessments.
 
 For further information on the transport modelling analysis required to develop 
-the necessary inputs for the `pagglomR`tool, refer to 
-*PAG Unit 6.9 - Wider Impacts*.
+the necessary inputs for the `pagglomR` package, refer to 
+*PAG Unit 6.9 - Wider Impacts*. To see examples on how to use the `pagglomR` 
+package, go to the 'Articles' section of the package website 
+<https://tii-stp.github.io/pagglomR/>.
 
 The relevant economic parameters built into the `pagglomR` package are taken 
 from the DPER *Public Spending Code (2019)*, the DoT 
