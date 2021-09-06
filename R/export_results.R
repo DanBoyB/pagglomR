@@ -35,22 +35,22 @@ export_results <- function(benefits_summary,
                            report_date) {
 
     # error messages
-    if(output_format == "report" && missing(benefits_summary)) {
+    if (output_format == "report" && missing(benefits_summary)) {
         stop("Summary benefits object missing")
     }
 
-    if(missing(benefits_discounted)) {
+    if (missing(benefits_discounted)) {
         stop("Discounted benefits object missing")
     }
 
-    if(missing(output_format)) {
+    if (missing(output_format)) {
         stop(
             paste0("Specify an output format ('csv' or 'report') ",
                    "using the output_format argument")
         )
     }
 
-    if(output_format == "report") {
+    if (output_format == "report") {
 
         rmarkdown::render(
             system.file("rmd", "output-results-word.Rmd", package = "pagglomR"),
@@ -63,7 +63,7 @@ export_results <- function(benefits_summary,
             )
     }
 
-    if(output_format == "csv") {
+    if (output_format == "csv") {
 
         write.csv(benefits_discounted,
                   file.choose(new = TRUE)

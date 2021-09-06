@@ -32,19 +32,19 @@ calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
         dm_zones == ds_zones
     }
 
-    if(error_fn_ed(eff_dens_dm, eff_dens_ds) == FALSE)
+    if (error_fn_ed(eff_dens_dm, eff_dens_ds) == FALSE)
         stop(
             paste0("No. of zones in Do Min Effective Densities must equal ",
                    "no. of zones in Do Some Effective Densities")
             )
 
-    if(error_fn_jobs(eff_dens_dm, jobs) == FALSE)
+    if (error_fn_jobs(eff_dens_dm, jobs) == FALSE)
         stop(
             paste0("No. of zones in jobs file must equal ",
                    "no. of zones in Do Min Effective Densities")
         )
 
-    if(error_fn_jobs(eff_dens_ds, jobs) == FALSE)
+    if (error_fn_jobs(eff_dens_ds, jobs) == FALSE)
         stop(
             paste0("No. of zones in jobs file must equal ",
                    "no. of zones in Do Some Effective Densities")
@@ -60,7 +60,7 @@ calc_prod_impacts <- function(eff_dens_dm, eff_dens_ds, jobs) {
     # initialise output matrix
     productivity <- matrix(0, no_zones, no_sectors)
 
-    for(i in 1:no_sectors) {
+    for (i in 1:no_sectors) {
         productivity[, i] <- (((eff_dens_ds$eff_dens[, i] /
                                     eff_dens_dm$eff_dens[, i]) ^
                                    parameters$elasticity[i]) - 1) *

@@ -28,21 +28,17 @@ calc_eff_dens <- function(gen_costs, jobs, year) {
         skim_zones == jobs_zones
     }
 
-    if(error_fn(gen_costs, jobs) == FALSE)
+    if (error_fn(gen_costs, jobs) == FALSE)
         stop("No. of zones in jobs file must equal no. of zones in cost skim")
 
-    # calculate number of zones and number of sectors
+    # calculate number of zones
     no_zones <- length(unique(gen_costs$o_zone))
-    no_sectors <- nrow(parameters)
 
     # convert gen. costs to matrix
     gc_matrix <- matrix(gen_costs$gen_cost, no_zones, no_zones, byrow = TRUE)
 
     # calculate total jobs per zone
     total_jobs <- matrix(rowSums(jobs), nrow = no_zones, ncol = 1)
-
-    # convert jobs by sector to matrix
-    jobs_matrix <- data.matrix(jobs)
 
     # named vector of decay parameters
     decay_parameters <- parameters$decay_parameter
@@ -53,7 +49,7 @@ calc_eff_dens <- function(gen_costs, jobs, year) {
         # initialise output matrices
         eff_dens_zone <- matrix(0, no_zones, no_zones)
 
-        for(i in 1:no_zones) {
+        for (i in 1:no_zones) {
 
             # calc matrix of effective densities
             eff_dens_zone[i, ] <- total_jobs /
