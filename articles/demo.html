@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pagglomR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -64,7 +60,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/TII-STP/pagglomR/">
+  <a href="https://github.com/TII-STP/pagglomR/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -85,7 +81,7 @@
       <h1 data-toc-skip>How to use the pagglomR package</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/TII-STP/pagglomR/blob/master/vignettes/demo.Rmd"><code>vignettes/demo.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/TII-STP/pagglomR/blob/HEAD/vignettes/demo.Rmd" class="external-link"><code>vignettes/demo.Rmd</code></a></small>
       <div class="hidden name"><code>demo.Rmd</code></div>
 
     </div>
@@ -111,26 +107,26 @@ GC_{i, j} ^ {S, m, f} &amp;= \frac{\sum_{p} \ GC_{i, j} ^ {S, m, p, f} \ T_{i, j
 <p>Weighted average generalised cost matrices should produced for commuting and business purposes only as productivity benefits are only associated with these journey purposes. Also, the modelled time periods to be included should be based on AM peak, Inter-Peak and PM peak. Off peak periods should not be considered as these periods are not active from the perspective of commuting and business use.</p>
 <p>A number of sample generalised cost outputs are included with the <code>pagglomR</code> package for the purposes of this example and for reference.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tii-stp.github.io/pagglomR/index.html">pagglomR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tii-stp.github.io/pagglomR/index.html" class="external-link">pagglomR</a></span><span class="op">)</span>
 
 <span class="va">dm_2024</span>
-<span class="co">#&gt; # A tibble: 12,100 × 3</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 12,100 × 3</span></span>
 <span class="co">#&gt;    o_zone d_zone gen_cost</span>
-<span class="co">#&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt;  1    358    358       0 </span>
-<span class="co">#&gt;  2    358    359     629.</span>
-<span class="co">#&gt;  3    358    362    1206.</span>
-<span class="co">#&gt;  4    358    381    1790.</span>
-<span class="co">#&gt;  5    358    382    2110.</span>
-<span class="co">#&gt;  6    358    391    3990.</span>
-<span class="co">#&gt;  7    358    393    3188.</span>
-<span class="co">#&gt;  8    358    395    4174.</span>
-<span class="co">#&gt;  9    358    397    3522.</span>
-<span class="co">#&gt; 10    358    399    3432.</span>
-<span class="co">#&gt; # … with 12,090 more rows</span></code></pre></div>
+<span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>    358    358       0 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>    358    359     629.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>    358    362    <span style="text-decoration: underline;">1</span>206.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>    358    381    <span style="text-decoration: underline;">1</span>790.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>    358    382    <span style="text-decoration: underline;">2</span>110.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>    358    391    <span style="text-decoration: underline;">3</span>990.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>    358    393    <span style="text-decoration: underline;">3</span>188.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>    358    395    <span style="text-decoration: underline;">4</span>174.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>    358    397    <span style="text-decoration: underline;">3</span>522.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    358    399    <span style="text-decoration: underline;">3</span>432.</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 12,090 more rows</span></span></code></pre></div>
 <p>A sample jobs file is also included with with the <code>pagglomR</code> package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sample_jobs</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sample_jobs</span><span class="op">)</span>
 <span class="co">#&gt;   Manufacturing Construction Wholesale_Retail Transport Inf_Comm_Tech</span>
 <span class="co">#&gt; 1          4398           94                0      2972             0</span>
 <span class="co">#&gt; 2            27           25                0       190             0</span>
@@ -204,33 +200,33 @@ WEI_i^{k, f} &amp;= \left[ \left( \frac{d_i^{DS, k, f}}{d_i^{DM, k, f}} \right)^
                                        <span class="va">prod_2054</span><span class="op">)</span>
 
 <span class="va">discounted_benefits</span>
-<span class="co">#&gt; # A tibble: 64 × 5</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 64 × 5</span></span>
 <span class="co">#&gt;     year modelled appraisal_year  nominal discounted</span>
-<span class="co">#&gt;    &lt;dbl&gt;    &lt;dbl&gt;          &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt;  1  2020       0               1       0          0 </span>
-<span class="co">#&gt;  2  2021       0               2       0          0 </span>
-<span class="co">#&gt;  3  2022       0               3       0          0 </span>
-<span class="co">#&gt;  4  2023       0               4       0          0 </span>
-<span class="co">#&gt;  5  2024 2707225.              5 3477106.   2088260.</span>
-<span class="co">#&gt;  6  2025 2721508.              6 3575846.   2064962.</span>
-<span class="co">#&gt;  7  2026 2735791.              7 3677288.   2041868.</span>
-<span class="co">#&gt;  8  2027 2750074.              8 3781506.   2018977.</span>
-<span class="co">#&gt;  9  2028 2764357.              9 3888572.   1996289.</span>
-<span class="co">#&gt; 10  2029 2778640.             10 3998562.   1973803.</span>
-<span class="co">#&gt; # … with 54 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">2</span>020       0               1       0          0 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>021       0               2       0          0 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>022       0               3       0          0 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>023       0               4       0          0 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>024 2<span style="text-decoration: underline;">707</span>225.              5 3<span style="text-decoration: underline;">477</span>106.   2<span style="text-decoration: underline;">088</span>260.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>025 2<span style="text-decoration: underline;">721</span>508.              6 3<span style="text-decoration: underline;">575</span>846.   2<span style="text-decoration: underline;">064</span>962.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>026 2<span style="text-decoration: underline;">735</span>791.              7 3<span style="text-decoration: underline;">677</span>288.   2<span style="text-decoration: underline;">041</span>868.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">2</span>027 2<span style="text-decoration: underline;">750</span>074.              8 3<span style="text-decoration: underline;">781</span>506.   2<span style="text-decoration: underline;">018</span>977.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">2</span>028 2<span style="text-decoration: underline;">764</span>357.              9 3<span style="text-decoration: underline;">888</span>572.   1<span style="text-decoration: underline;">996</span>289.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>029 2<span style="text-decoration: underline;">778</span>640.             10 3<span style="text-decoration: underline;">998</span>562.   1<span style="text-decoration: underline;">973</span>803.</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 54 more rows</span></span></code></pre></div>
 <p>The discounted benefits can be summarised into a total present value benefit over the 30 year appraisal period, and a separate total for the residual value period using the <code><a href="../reference/prod_summary.html">prod_summary()</a></code> function.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">summary_benefits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/prod_summary.html">prod_summary</a></span><span class="op">(</span><span class="va">discounted_benefits</span><span class="op">)</span>
 
 <span class="va">summary_benefits</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 2</span></span>
 <span class="co">#&gt;   period                  pv_benefits</span>
-<span class="co">#&gt;   &lt;chr&gt;                         &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 30 year benefits          53425447.</span>
-<span class="co">#&gt; 2 Residual value benefits   44331675.</span></code></pre></div>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 30 year benefits          53<span style="text-decoration: underline;">425</span>447.</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Residual value benefits   44<span style="text-decoration: underline;">331</span>675.</span></code></pre></div>
 <p>The total productivity impacts in present value terms can be calculated using:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">summary_benefits</span><span class="op">$</span><span class="va">pv_benefits</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">summary_benefits</span><span class="op">$</span><span class="va">pv_benefits</span><span class="op">)</span>
 <span class="co">#&gt; [1] 97757122</span></code></pre></div>
 <p>This can be added to the transport user benefits to produce an updated benefit cost ratio (BCR) as part of a sensitivity test around the central case in the scheme appraisal.</p>
   </div>
@@ -244,11 +240,13 @@ WEI_i^{k, f} &amp;= \left[ \left( \frac{d_i^{DS, k, f}}{d_i^{DM, k, f}} \right)^
 
 
       <footer><div class="copyright">
-  <p>Developed by Dan Brennan.</p>
+  <p></p>
+<p>Developed by Dan Brennan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -256,6 +254,8 @@ WEI_i^{k, f} &amp;= \left[ \left( \frac{d_i^{DS, k, f}}{d_i^{DM, k, f}} \right)^
 
   
 
+
+  
 
   </body>
 </html>
